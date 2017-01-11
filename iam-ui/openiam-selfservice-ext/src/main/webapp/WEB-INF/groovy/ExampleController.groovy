@@ -6,6 +6,7 @@ import org.openiam.idm.srvc.user.dto.LightSearchResponse
 import org.openiam.ui.selfservice.ext.web.mvc.AbstractSelfServiceExtController
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody
 
 import javax.annotation.Resource
 import javax.servlet.http.HttpServletRequest
-import javax.ws.rs.PathParam
 
 @Controller
 public class ExampleController extends AbstractSelfServiceExtController {
@@ -50,12 +50,12 @@ public class ExampleController extends AbstractSelfServiceExtController {
 
     @RequestMapping(value = "/user/search/{query}", method = RequestMethod.GET)
     @ResponseBody
-    public LightUserSearchModel search(
-            final HttpServletRequest request, Model model, @PathParam(value = 'query') searchQuery) {
+    public String search(
+            final HttpServletRequest request, Model model, @PathVariable(value = 'query') searchQuery) {
         LightSearchRequest searchRequest = new LightSearchRequest();
         searchRequest.login = searchQuery;
         LightSearchResponse response = userDataWebService.getLightSearchResult(searchRequest);
-        return response;
+        return jacksonMapper.writeValueAsString(response);
     }
 
 

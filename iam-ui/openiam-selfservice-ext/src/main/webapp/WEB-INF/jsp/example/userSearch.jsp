@@ -21,6 +21,10 @@
     <link href="/openiam-ui-static/js/common/plugins/modalsearch/modal.search.css" rel="stylesheet" type="text/css"/>
     <link href="/openiam-ui-static/js/webconsole/plugins/usersearch/user.search.css" rel="stylesheet" type="text/css"/>
     <link href="/openiam-ui-static/plugins/tiptip/tipTip.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="/openiam-ui-static/js/common/menutree.js"></script>
+    <script type="text/javascript" src="/openiam-ui-static/js/common/openiam.common.js"></script>
+    <script type="text/javascript" src="/openiam-ui-static/_dynamic/openiamResourceBundle.js"></script>
+    <script type="text/javascript" src="/openiam-ui-static/js/common/jquery/jquery-1.8.2.js"></script>
     <script type="text/javascript" src="/selfservice-ext/js/example/example.js"></script>
 </head>
 <body>

@@ -1,11 +1,12 @@
 $(document).ready(function () {
     $('#input-button-search').on('click', function () {
         $.ajax({
-            url: "/user/search/" + $("#input-text-query").val() + ".html",
+            url: "user/search/" + $("#input-text-query").val() + ".html",
             type: "GET",
-            dataType: "application/json",
+            dataType: "text",
             success: function (data, textStatus, jqXHR) {
                 if (data) {
+                    data = $.parseJSON(data);
                     if ("SUCCESS" == data.status) {
                         var container = $('#div-searchResults');
                         container.empty();
